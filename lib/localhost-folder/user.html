@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><title>Health Info</title></head>
+<body>
+  <h1>User Health Info</h1>
+  <div id="info">Loading...</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get("id");
+
+    fetch('/users.json')
+      .then(res => res.json())
+      .then(data => {
+        const user = data[userId];
+        if (user) {
+          document.getElementById('info').innerHTML = `
+            <p><strong>Tension:</strong> ${user.Tension}</p>
+            <p><strong>Glycémie:</strong> ${user.Glycémie}</p>
+            <p><strong>Sommeil:</strong> ${user.Sommeil}h</p>
+          `;
+        } else {
+          document.getElementById('info').innerText = "User not found.";
+        }
+      })
+      .catch(error => {
+        document.getElementById('info').innerText = "Error loading data.";
+        console.error(error);
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+{
+  "user123": {
+    "Tension": 12,
+    "Glycémie": 6.5,
+    "Sommeil": 8
+  },
+  "user456": {
+    "Tension": 11,
+    "Glycémie": 5.9,
+    "Sommeil": 7
+  }
+}
